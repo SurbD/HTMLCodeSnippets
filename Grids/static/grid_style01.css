@@ -1,0 +1,106 @@
+/* Grid01 Stylesheet */
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+        'one'
+        'two'
+        'three'
+        'four'
+        'five';
+
+    grid-auto-rows: minmax(150px, auto);
+
+    padding-block: 2rem;
+    width: min(95%, 170rem);
+    margin-inline: auto;
+}
+
+/* @media (min-width: 80em) {
+    .grid-col-span2 {
+        grid-column: span 2;
+    }
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .grid-items:last-child {
+        grid-column-start: 4;
+        grid-row: 1 / span 2;
+    }
+} */
+
+@media (min-width: 50em) {
+    .grid-container {
+        grid-template-areas: 
+            'one one' 
+            'two five'
+            'three five' 
+            'four four ';
+    }
+}
+@media (min-width: 80em) {
+    .grid-container {
+        grid-template-areas: 
+            'one one two five'
+            'three four four five';
+    }
+}
+
+.grid-items {
+    background-color: bisque;
+    display: flex;
+    border: 1px solid salmon;
+    color: red;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.grid-items:nth-child(1) {
+    grid-area: one;
+}
+.grid-items:nth-child(2) {
+    grid-area: two;
+}
+.grid-items:nth-child(3) {
+    grid-area: three;
+}
+.grid-items:nth-child(4) {
+    grid-area: four;
+}
+.grid-items:nth-child(5) {
+    grid-area: five;
+}
+
+.grid-items:last-child {
+    /* grid-column-start: 4;
+    grid-row: 1 / span 2; */
+    background: cornflowerblue;
+    color: black;
+}
+
+/* Utility class */
+/* .grid-col-span2 {
+    grid-column: span 2;
+} */
+/* End of Utility class */
+
+.grid-item1 {
+    background-color: mediumturquoise;
+    /* grid-column: one; */
+    color: rgb(0, 0, 0);
+}
+
+.grid-item4 {
+    background-color: rgb(239, 133, 110);
+    color: rgb(0, 0, 0);
+}
